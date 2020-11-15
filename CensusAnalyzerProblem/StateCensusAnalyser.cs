@@ -9,7 +9,7 @@ namespace CensusAnalyzerProblem
     {
         static private List<StateCensusData> StateCensusAnalyserlist = new List<StateCensusData>();
         public List<StateCensusData> loadStateCensusData(String path) {
-
+            
             var file = new System.IO.StreamReader(path);
             StateCensusAnalyserlist = new CsvHelper.CsvReader(file, System.Globalization.CultureInfo.InvariantCulture)
                     .GetRecords<StateCensusData>().ToList();
