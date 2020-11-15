@@ -16,6 +16,8 @@ namespace CensusAnalyzerTest
         String IndiaCensusDataWithDelimiter = @"C:\\Users\\com\\Desktop\\csv\\DelimiterIndiaStateCensusData.csv";
         String IndiaCensusDataWithWrongFile = @"C:\\Users\\com\\Desktop\\csv\\IndiaStateCode.txt";
 
+        String IndiaStateCensusWithoutHeader = @"C:\\Users\\com\\Desktop\\csv\\WrongHeaderIndiaStateCensusData.csv";
+
         [Test]
         public void givenIndiaStateCodecsvFile_ifHasCorrectNumberOFRecord_ShouldReturnTrue() {
 
@@ -55,10 +57,20 @@ namespace CensusAnalyzerTest
             }
             catch (CustomException customException) {
                 Assert.AreEqual(CustomException.ExceptionType.Invalid_File, customException.type);
+            }      
+        }
+
+        [Test]
+        public void givenStateCensusAnalyser_WithoutHeader_ShouldThrowException() {
+            try
+            {
+                CSVHeaderCheck csvHeaderCheck = new CSVHeaderCheck();
+                csvHeaderCheck.loadFile(IndiaStateCensusWithoutHeader);
             }
-        
-        
-        
+            catch (CustomException customException)
+            {
+                Assert.AreEqual(CustomException.ExceptionType.Invalid_Header, customException.type);
+            }
         }
 
 

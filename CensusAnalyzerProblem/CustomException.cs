@@ -8,7 +8,7 @@ namespace CensusAnalyzerProblem
     {
         public enum ExceptionType { 
         
-        emplty_fileException,diliminator_issue,Invalid_File
+        emplty_fileException,diliminator_issue,Invalid_File,Invalid_Header
         }
 
         public readonly ExceptionType type;
