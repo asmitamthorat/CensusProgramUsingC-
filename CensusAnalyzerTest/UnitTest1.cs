@@ -34,7 +34,7 @@ namespace CensusAnalyzerTest
         public void givenStateCensusData_ifHasCorrectNumberOfRecord_ShouldReturnTrue() {
 
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
-            List < StateCensusData >  list= stateCensusAnalyser.loadStateCensusData(IndiaCensusDataFilePath1);
+            List < CensusDataDAO >  list= stateCensusAnalyser.loadStateCensusData(IndiaCensusDataFilePath1);
             int count = list.Count;
             Console.WriteLine(count);
             Assert.AreEqual(29, count);
@@ -121,7 +121,7 @@ namespace CensusAnalyzerTest
         [Test]
         public void givenStateCensusCsv_sortOntheBasisOfStateName() {
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
-           List<StateCensusData> JsonStateCensusData= stateCensusAnalyser.sortByStateName(IndiaCensusDataFilePath1);
+           List<CensusDataDAO> JsonStateCensusData= stateCensusAnalyser.sortByStateName(IndiaCensusDataFilePath1);
             Assert.AreEqual("Andhra Pradesh", JsonStateCensusData[0].State);
         }
 
