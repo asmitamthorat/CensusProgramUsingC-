@@ -8,21 +8,21 @@ namespace CensusAnalyzerProblem
     public class CensusAnalyzerImpli
     {
 
-        static private List<IndiaStateCode> IndiaStateCodeCsvList = new List<IndiaStateCode>();
-        public List<IndiaStateCode> loadingStateCensusCSV(String path) {
+        static private List<IndiaStateCodeDAO> IndiaStateCodeCsvList = new List<IndiaStateCodeDAO>();
+        public List<IndiaStateCodeDAO> loadingStateCensusCSV(String path) {
             using (var file = new System.IO.StreamReader( path))
             {
                 IndiaStateCodeCsvList = new CsvHelper.CsvReader(file, System.Globalization.CultureInfo.InvariantCulture)
-                    .GetRecords<IndiaStateCode>().ToList();
+                    .GetRecords<IndiaStateCodeDAO>().ToList();
             }
             return IndiaStateCodeCsvList;
         }
 
 
 
-        public List<IndiaStateCode> sortByStateCode(String Path) {
-            List<IndiaStateCode> ListOfStateCode = loadingStateCensusCSV(Path);
-            ListOfStateCode.Sort(delegate (IndiaStateCode c1, IndiaStateCode c2) { return c1.StateCode.CompareTo(c2.StateCode); });
+        public List<IndiaStateCodeDAO> sortByStateCode(String Path) {
+            List<IndiaStateCodeDAO> ListOfStateCode = loadingStateCensusCSV(Path);
+            ListOfStateCode.Sort(delegate (IndiaStateCodeDAO c1, IndiaStateCodeDAO c2) { return c1.StateCode.CompareTo(c2.StateCode); });
             return ListOfStateCode;
 
 

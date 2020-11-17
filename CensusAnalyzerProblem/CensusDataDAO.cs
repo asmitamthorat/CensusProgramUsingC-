@@ -10,6 +10,7 @@ namespace CensusAnalyzerProblem
         public int Population;
         public String AreaInSqKm;
         public String DensityPerSqKm;
+        
 
 
         public CensusDataDAO(StateCensusData stateCensusData)
@@ -19,5 +20,8 @@ namespace CensusAnalyzerProblem
             this.AreaInSqKm = stateCensusData.AreaInSqKm;
             this.DensityPerSqKm = stateCensusData.DensityPerSqKm;
         }
+
+
+      
     }
 }

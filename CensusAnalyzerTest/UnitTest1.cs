@@ -26,7 +26,7 @@ namespace CensusAnalyzerTest
         public void givenIndiaStateCodecsvFile_ifHasCorrectNumberOFRecord_ShouldReturnTrue() {
 
             CensusAnalyzerImpli censusAnalyzer = new CensusAnalyzerImpli();
-            List<IndiaStateCode> list =censusAnalyzer.loadingStateCensusCSV(IndiaStateCodeCensusFilePath);
+            List<IndiaStateCodeDAO> list =censusAnalyzer.loadingStateCensusCSV(IndiaStateCodeCensusFilePath);
             int count = list.Count;
             Assert.AreEqual(37,count);
         }
@@ -129,7 +129,7 @@ namespace CensusAnalyzerTest
         [Test]
         public void givenStateCodeCsvFile_whenSorted_ShouldRetrunSortedList() {
             CensusAnalyzerImpli censusAnalyzerImpli = new CensusAnalyzerImpli();
-            List<IndiaStateCode> sortedIndiaStateCodelist=censusAnalyzerImpli.sortByStateCode(IndiaStateCodeCensusFilePath);
+            List<IndiaStateCodeDAO> sortedIndiaStateCodelist=censusAnalyzerImpli.sortByStateCode(IndiaStateCodeCensusFilePath);
             Assert.AreEqual("AD", sortedIndiaStateCodelist[0].StateCode);
 
         
