@@ -9,13 +9,16 @@ namespace CensusAnalyzerProblem
     {
 
         static private List<IndiaStateCode> IndiaStateCodeCsvList = new List<IndiaStateCode>();
+        static private Dictionary<String, List<IndiaStateCode>> Dictionary = new Dictionary<string, List<IndiaStateCode>>();
         public List<IndiaStateCode> loadingStateCensusCSV(String path) {
             using (var file = new System.IO.StreamReader( path))
             {
                 IndiaStateCodeCsvList = new CsvHelper.CsvReader(file, System.Globalization.CultureInfo.InvariantCulture)
                     .GetRecords<IndiaStateCode>().ToList();
             }
-            return IndiaStateCodeCsvList;
+            Dictionary.Add("IndiaStateCode", IndiaStateCodeCsvList);
+            var matchKey = "IndiaStateCode";
+            return Dictionary[matchKey];
         }
 
 

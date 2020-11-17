@@ -17,7 +17,6 @@ namespace CensusAnalyzerTest
         String IndiaCensusDataFilePath1 = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\IndiaStateCensusData.csv";
         String IndiaStateCensusWithoutHeader = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\WrongHeaderIndiaStateCensusData.csv";
         String IndiaCensusAnalyserWithWrong_File = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\IndiaCensusAnalyser.txt";
-
         String IndiaStateCodeWithDelimiter = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\IndiaStateCode_withDelimiterIssue.csv";
 
 
