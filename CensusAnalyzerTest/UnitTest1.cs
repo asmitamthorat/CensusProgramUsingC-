@@ -112,14 +112,10 @@ namespace CensusAnalyzerTest
                 CSVHeaderCheck cSVHeaderCheck = new CSVHeaderCheck();
                 cSVHeaderCheck.loadFile(IndiaStateCodeWithDelimiter);
             }
-            catch (CustomException customException) {
+            catch (CustomException customException)
+            {
                 Assert.AreEqual(CustomException.ExceptionType.Invalid_Header, customException.type);
-            
-            
             }
-        
-        
-        
         }
 
 

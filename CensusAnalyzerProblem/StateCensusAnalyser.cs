@@ -9,14 +9,20 @@ namespace CensusAnalyzerProblem
 {
     public class StateCensusAnalyser
     {
-        static private List<StateCensusData> StateCensusAnalyserlist = new List<StateCensusData>();
+        public List<StateCensusData> StateCensusAnalyserlist = new List<StateCensusData>();
+        public Dictionary<String, List<StateCensusData>> Dictionary = new Dictionary<string, List<StateCensusData>>();
+       
         public List<StateCensusData> loadStateCensusData(String path) {
             
             var file = new System.IO.StreamReader(path);
             StateCensusAnalyserlist = new CsvHelper.CsvReader(file, System.Globalization.CultureInfo.InvariantCulture)
                     .GetRecords<StateCensusData>().ToList();
-        
-            return StateCensusAnalyserlist;
+
+            Dictionary.Add("StateCensusAnalyzer", StateCensusAnalyserlist);
+            var matchKey = "StateCensusAnalyzer";
+
+
+            return Dictionary[matchKey];
         }
 
 
