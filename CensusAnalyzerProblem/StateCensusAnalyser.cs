@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using Newtonsoft.Json;
+
 
 namespace CensusAnalyzerProblem
 {
@@ -15,6 +17,18 @@ namespace CensusAnalyzerProblem
                     .GetRecords<StateCensusData>().ToList();
         
             return StateCensusAnalyserlist;
+        }
+
+
+        public List<StateCensusData> sortByStateName(String path) {
+           List<StateCensusData> list= loadStateCensusData(path);
+            //sorting using delegate
+            list.Sort(delegate (StateCensusData c1, StateCensusData c2) { return c1.State.CompareTo(c2.State); });
+           // String JsonSortedStateCensusData = JsonConvert.SerializeObject(list);
+            return list;
+
+
+
         }
 
     }

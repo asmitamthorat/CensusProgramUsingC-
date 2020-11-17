@@ -12,7 +12,7 @@ namespace CensusAnalyzerProblem
     public class Delimiter
     {
         static private List<StateCensusData> StateCensusAnalyserlist = new List<StateCensusData>();
-        public List<StateCensusData> loadData(String path) {
+        public void loadData(String path) {
             using (StreamReader reader = new StreamReader(path))
             {
 
@@ -23,7 +23,7 @@ namespace CensusAnalyzerProblem
 
                     throw new CustomException(CustomException.ExceptionType.diliminator_issue, "dilimiter issue");
                 }
-                return StateCensusAnalyserlist;
+               
             }
         
         }
