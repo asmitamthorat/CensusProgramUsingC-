@@ -32,8 +32,13 @@ namespace CensusAnalyzerProblem
             list.Sort(delegate (CensusDataDAO c1, CensusDataDAO c2) { return c1.State.CompareTo(c2.State); });
            // String JsonSortedStateCensusData = JsonConvert.SerializeObject(list);
             return list;
+        }
 
 
+        public List<CensusDataDAO> sortBYPopulation(String path) {
+            List<CensusDataDAO> list = loadStateCensusData(path);
+            list.Sort(delegate(CensusDataDAO c1,CensusDataDAO c2) { return c1.Population.CompareTo(c2.Population); });
+            return list;
 
         }
 

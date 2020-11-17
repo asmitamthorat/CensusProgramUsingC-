@@ -131,7 +131,14 @@ namespace CensusAnalyzerTest
             CensusAnalyzerImpli censusAnalyzerImpli = new CensusAnalyzerImpli();
             List<IndiaStateCodeDAO> sortedIndiaStateCodelist=censusAnalyzerImpli.sortByStateCode(IndiaStateCodeCensusFilePath);
             Assert.AreEqual("AD", sortedIndiaStateCodelist[0].StateCode);
+        }
 
+
+        [Test]
+        public void givenStateAnalyserCSVFile_whenSorted_ShouldRetrunSortedList() {
+            StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+            List<CensusDataDAO> sortedStateCensusAnalyserList = stateCensusAnalyser.sortBYPopulation(IndiaCensusDataFilePath1);
+            Assert.AreEqual("Uttar Pradesh", sortedStateCensusAnalyserList[sortedStateCensusAnalyserList.Count-1].State);
         
         
         }
