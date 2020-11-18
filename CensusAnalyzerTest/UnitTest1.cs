@@ -48,7 +48,7 @@ namespace CensusAnalyzerTest
                 delimiter.loadData(IndiaCensusDataWithDelimiter);
             }
             catch (CustomException customException) {
-                Assert.AreEqual(CustomException.ExceptionType.diliminator_issue,customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_DILIMINATOR,customException.type);
 
             }   
         }
@@ -62,7 +62,7 @@ namespace CensusAnalyzerTest
 
             }
             catch (CustomException customException) {
-                Assert.AreEqual(CustomException.ExceptionType.diliminator_issue,customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_DILIMINATOR,customException.type);
             }
         
         
@@ -75,7 +75,7 @@ namespace CensusAnalyzerTest
                 wrongFileInput.loadFile(IndiaCensusDataWithWrongFile);
             }
             catch (CustomException customException) {
-                Assert.AreEqual(CustomException.ExceptionType.Invalid_File, customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_FILE, customException.type);
             }      
         }
 
@@ -86,7 +86,7 @@ namespace CensusAnalyzerTest
                 wrongFileInput.loadFile(IndiaCensusAnalyserWithWrong_File);
             }
             catch (CustomException customException) {
-                Assert.AreEqual(CustomException.ExceptionType.Invalid_File, customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_FILE, customException.type);
             
             }
         }
@@ -100,7 +100,7 @@ namespace CensusAnalyzerTest
             }
             catch (CustomException customException)
             {
-                Assert.AreEqual(CustomException.ExceptionType.Invalid_Header, customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_HEADER, customException.type);
             }
         }
 
@@ -114,7 +114,7 @@ namespace CensusAnalyzerTest
             }
             catch (CustomException customException)
             {
-                Assert.AreEqual(CustomException.ExceptionType.Invalid_Header, customException.type);
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_HEADER, customException.type);
             }
         }
 
@@ -127,7 +127,8 @@ namespace CensusAnalyzerTest
         }
 
         [Test]
-        public void givenStateCodeCsvFile_whenSorted_ShouldRetrunSortedList() {
+        public void givenStateCodeCsvFile_whenSorted_ShouldRetrunSortedList() 
+        {
             CensusAnalyzerImpli censusAnalyzerImpli = new CensusAnalyzerImpli();
             List<IndiaStateCodeDAO> sortedIndiaStateCodelist=censusAnalyzerImpli.sortByStateCode(IndiaStateCodeCensusFilePath);
             Assert.AreEqual("AD", sortedIndiaStateCodelist[0].StateCode);
@@ -135,7 +136,8 @@ namespace CensusAnalyzerTest
 
 
         [Test]
-        public void givenStateAnalyserCSVFile_whenSortedwithPopulation_ShouldRetrunSortedList() {
+        public void givenStateAnalyserCSVFile_whenSortedwithPopulation_ShouldRetrunSortedList() 
+        {
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
             List<CensusDataDAO> sortedStateCensusAnalyserList = stateCensusAnalyser.sortBYPopulation(IndiaCensusDataFilePath1);
             Assert.AreEqual("Uttar Pradesh", sortedStateCensusAnalyserList[sortedStateCensusAnalyserList.Count-1].State); 
@@ -143,7 +145,8 @@ namespace CensusAnalyzerTest
 
 
         [Test]
-        public void givenStateAnalyserCSVFile_whenSortedWithPopulationDensity_ShouldReturnSortedList() {
+        public void givenStateAnalyserCSVFile_whenSortedWithPopulationDensity_ShouldReturnSortedList() 
+        {
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
             List<CensusDataDAO> sortedStateCensusAnalyserList = stateCensusAnalyser.sortByPopulationDensity(IndiaCensusDataFilePath1);
             Assert.AreEqual("West Bengal", sortedStateCensusAnalyserList[0].State);
@@ -151,24 +154,26 @@ namespace CensusAnalyzerTest
 
 
         [Test]
-        public void givenIndiaStateCodeCSVFile_WhenSortedWithsStateArea_ShoudlReturnSortedList() {
+        public void givenIndiaStateCodeCSVFile_WhenSortedWithsStateArea_ShoudlReturnSortedList() 
+        {
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
             List<CensusDataDAO> sortedStateCensusAnalyserList = stateCensusAnalyser.sortByStateArea(IndiaCensusDataFilePath1);
             Assert.AreEqual("Tripura", sortedStateCensusAnalyserList[0].State);
         }
 
         [Test]
-        public void givenUSCensusData_ifHasCorrectNumberOfRecord_ShouldTrue() {
+        public void givenUSCensusData_ifHasCorrectNumberOfRecord_ShouldTrue() 
+        {
+
             USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
            List<USCensusAnalyserDAO> list= uSCensusAnalyser.loadUSCensusData(USCensusData);
             int count = list.Count;
-            Assert.AreEqual(51,count);
-        
-        
+            Assert.AreEqual(51,count); 
         }
-
+        
         [Test]
-        public void givenUSCensusCSV_WhenSortedBasedONPopulation_ShouldRetrunSortedList() {
+        public void givenUSCensusCSV_WhenSortedBasedONPopulation_ShouldRetrunSortedList()
+        {
             USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
             List<USCensusAnalyserDAO> list = uSCensusAnalyser.sortByPopulation(USCensusData);
             Assert.AreEqual("California", list[list.Count-1].State);
@@ -176,7 +181,7 @@ namespace CensusAnalyzerTest
         }
 
        [Test]
-       public void givenUSCensusCSV_WhenSortedBasedOnPopulationDensity_ShouldRetrunSortedList()
+        public void givenUSCensusCSV_WhenSortedBasedOnPopulationDensity_ShouldRetrunSortedList()
         {
             USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
             List<USCensusAnalyserDAO> list = uSCensusAnalyser.sortByPopulationDensity(USCensusData);
@@ -184,13 +189,29 @@ namespace CensusAnalyzerTest
         }
 
         [Test]
-        public void givenUSCensusCSV_WhenSortedBasedOnArea_SholdReturnSortedList() {
+        public void givenUSCensusCSV_WhenSortedBasedOnArea_SholdReturnSortedList() 
+        {
+
             USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
             List<USCensusAnalyserDAO> list = uSCensusAnalyser.sortByArea(USCensusData);
             Assert.AreEqual("Alaska", list[list.Count - 1].State);
         
         
         }
+
+        [Test]
+        public void givenTXT_Input() {
+            try {
+                USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
+                List<USCensusAnalyserDAO> list = uSCensusAnalyser.loadUSCensusData(IndiaCensusAnalyserWithWrong_File);
+            }
+            catch (CustomException customException) {
+                Assert.AreEqual(CustomException.ExceptionType.INVALID_FILE, customException.type);
+            }
+        
+        
+        }
+        
 
 
     }

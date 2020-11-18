@@ -6,11 +6,12 @@ namespace CensusAnalyzerProblem
 {
     public class CensusDataDAO
     {
-        public String State;
+        public string State;
         public int Population;
-        public String AreaInSqKm;
-        public String DensityPerSqKm;
-        
+        public string AreaInSqKm;
+        public string DensityPerSqKm;
+       
+
 
 
         public CensusDataDAO(StateCensusData stateCensusData)
@@ -21,10 +22,7 @@ namespace CensusAnalyzerProblem
             this.DensityPerSqKm = stateCensusData.DensityPerSqKm;
         }
 
-        public override string ToString()
-        {
-            return $"State {State}: Population: {Population},AreaInSqKm: {AreaInSqKm}, DensityPerSqKm: {DensityPerSqKm}";
-        }
+        
 
     }
 }
