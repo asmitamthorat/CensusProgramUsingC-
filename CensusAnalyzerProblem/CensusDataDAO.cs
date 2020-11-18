@@ -21,7 +21,10 @@ namespace CensusAnalyzerProblem
             this.DensityPerSqKm = stateCensusData.DensityPerSqKm;
         }
 
+        public override string ToString()
+        {
+            return $"State {State}: Population: {Population},AreaInSqKm: {AreaInSqKm}, DensityPerSqKm: {DensityPerSqKm}";
+        }
 
-      
     }
 }

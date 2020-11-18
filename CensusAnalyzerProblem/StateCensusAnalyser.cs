@@ -42,5 +42,20 @@ namespace CensusAnalyzerProblem
 
         }
 
+        public List<CensusDataDAO> sortByPopulationDensity(String path) {
+            List<CensusDataDAO> list = loadStateCensusData(path);
+            list.Sort(delegate (CensusDataDAO c1, CensusDataDAO c2) { return c1.DensityPerSqKm.CompareTo(c2.DensityPerSqKm); });
+            
+            return list;
+        }
+
+
+        public List<CensusDataDAO> sortByStateArea(String path) {
+            List<CensusDataDAO> list = loadStateCensusData(path);
+            list.Sort(delegate (CensusDataDAO c1, CensusDataDAO c2) { return c1.AreaInSqKm.CompareTo(c2.AreaInSqKm); });
+            return list;
+
+        }
+
     }
 }
