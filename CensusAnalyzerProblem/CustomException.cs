@@ -4,11 +4,11 @@ using System.Text;
 
 namespace CensusAnalyzerProblem
 {
-   public class CustomException:Exception
+    public class CustomException:Exception
     {
         public enum ExceptionType { 
         
-        emplty_fileException,diliminator_issue,Invalid_File,Invalid_Header
+        INVALID_HEADER,INVALID_FILE,INVALID_DILIMINATOR
         }
 
         public readonly ExceptionType type;

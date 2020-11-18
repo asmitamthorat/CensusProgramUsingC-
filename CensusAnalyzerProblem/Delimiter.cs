@@ -21,7 +21,7 @@ namespace CensusAnalyzerProblem
                 if (!data.Contains(","))
                 {
 
-                    throw new CustomException(CustomException.ExceptionType.diliminator_issue, "dilimiter issue");
+                    throw new CustomException(CustomException.ExceptionType.INVALID_DILIMINATOR, "dilimiter issue");
                 }
                
             }

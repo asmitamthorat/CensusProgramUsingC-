@@ -11,7 +11,7 @@ namespace CensusAnalyzerProblem
             FileInfo file = new FileInfo(fileName);
             String FileExtension = file.Extension;
             if (FileExtension != ".csv") {
-                throw new CustomException(CustomException.ExceptionType.Invalid_File, "not a csv file");
+                throw new CustomException(CustomException.ExceptionType.INVALID_FILE, "not a csv file");
             }
 
         }

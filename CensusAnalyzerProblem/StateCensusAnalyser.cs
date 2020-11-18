@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CensusAnalyzerProblem
 {
-    public class StateCensusAnalyser
+    public class StateCensusAnalyser: IStateCensusAnalyserAdapter
     {
         public List<CensusDataDAO> StateCensusAnalyserlist = new List<CensusDataDAO>();
         public Dictionary<String, List<CensusDataDAO>> Dictionary = new Dictionary<string, List<CensusDataDAO>>();

@@ -16,7 +16,7 @@ namespace CensusAnalyzerProblem
             {
                 if (!csv.Configuration.HasHeaderRecord) {
 
-                    throw new CustomException(CustomException.ExceptionType.Invalid_Header, "csv file doesn't have header");
+                    throw new CustomException(CustomException.ExceptionType.INVALID_HEADER, "csv file doesn't have header");
 
                 }
                

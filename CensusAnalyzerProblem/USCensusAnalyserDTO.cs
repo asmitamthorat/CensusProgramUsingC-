@@ -7,9 +7,9 @@ namespace CensusAnalyzerProblem
    public class USCensusAnalyserDTO
     {
 
-        public String StateId { get; set; }
+        public string StateId { get; set; }
 
-        public String State { get; set; }
+        public string State { get; set; }
 
         public int Population { get; set; }
         public int HousingUnits { get; set; }
