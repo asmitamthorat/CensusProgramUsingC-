@@ -6,10 +6,10 @@ namespace CensusAnalyzerProblem
 {
    public class StateCensusData
     {
-        public String State { get; set; }
+        public string State { get; set; }
         public int  Population { get; set; }
-        public String AreaInSqKm { get; set; }
-        public String DensityPerSqKm { get; set; }
+        public string AreaInSqKm { get; set; }
+        public string DensityPerSqKm { get; set; }
 
 
         public override string ToString()

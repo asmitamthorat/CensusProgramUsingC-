@@ -7,9 +7,9 @@ namespace CensusAnalyzerProblem
     public class IndiaStateCodeDAO
     {
         public int SrNo;
-        public String StateName;
-        public String TIN;
-        public String StateCode;
+        public string StateName;
+        public string TIN;
+        public string StateCode;
 
 
         public IndiaStateCodeDAO(IndiaStateCode indiaStateCode)

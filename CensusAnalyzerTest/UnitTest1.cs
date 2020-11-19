@@ -2,6 +2,7 @@ using NUnit.Framework;
 using CensusAnalyzerProblem;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace CensusAnalyzerTest
 {
@@ -122,8 +123,9 @@ namespace CensusAnalyzerTest
         [Test]
         public void givenStateCensusCsv_sortOntheBasisOfStateName() {
             StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
-           List<CensusDataDAO> JsonStateCensusData= stateCensusAnalyser.sortByStateName(IndiaCensusDataFilePath1);
-            Assert.AreEqual("Andhra Pradesh", JsonStateCensusData[0].State);
+           String JsonStateCensusData= stateCensusAnalyser.sortByStateName(IndiaCensusDataFilePath1);
+            var jo = JObject.Parse(JsonStateCensusData);
+            Assert.AreEqual("Andhra Pradesh", jo[0]);
         }
 
         [Test]
@@ -207,12 +209,9 @@ namespace CensusAnalyzerTest
             }
             catch (CustomException customException) {
                 Assert.AreEqual(CustomException.ExceptionType.INVALID_FILE, customException.type);
-            }
-        
-        
+            }   
         }
+
         
-
-
     }
 }

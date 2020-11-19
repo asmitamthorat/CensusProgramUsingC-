@@ -6,11 +6,13 @@ namespace CensusAnalyzerProblem
     {
         static void Main(string[] args)
         {
-            
-            String USCensusData = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\USCensusData.csv";
-            USCensusAnalyser uSCensusAnalyser = new USCensusAnalyser();
-            uSCensusAnalyser.loadUSCensusData(USCensusData);
-            
+
+            String IndiaCensusDataFilePath1 = @"C:\\Users\\com\\source\\repos\\CensusAnalyzerProblem\\CensusAnalyzerTest\\utilities\\IndiaStateCensusData.csv";
+            StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser();
+
+            stateCensusAnalyser.sortByStateName(IndiaCensusDataFilePath1);
+
+
         }
     }
 }
